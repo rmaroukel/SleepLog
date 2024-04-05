@@ -18,11 +18,6 @@ const SecureAccess = () => {
   const [accessCode, setAccessCode] = useState("");
 
   useEmmersiveLayout();
-
-  const logSleep = () => {
-    navigation.goBack();
-  };
-
   const dismissKeyboard = () => Keyboard.dismiss();
 
   return (
@@ -38,7 +33,7 @@ const SecureAccess = () => {
             value={accessCode}
             onChangeText={setAccessCode}
           />
-          <Pressable style={STYLE.button} onPress={logSleep}>
+          <Pressable style={STYLE.button} onPress={() => navigation.navigate("SleepLogger")}>
             <Text style={STYLE.buttontext}>Access Sleep Logs</Text>
           </Pressable>
         </View>

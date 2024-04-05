@@ -18,7 +18,7 @@ const Home = () => {
     <>
       <StatusBar barStyle="light-content" backgroundColor={COLORS.primary} />
       <View style={STYLE.container}>
-        <Text style={STYLE.welcomeText}>Welcome!</Text>
+        <Text style={STYLE.largeheader}>Welcome!</Text>
         <Text style={STYLE.infoText}>
           A good night's sleep is essential for your health and well-being. It
           helps to improve your brain performance, mood, and overall health.
