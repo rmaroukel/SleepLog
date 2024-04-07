@@ -5,6 +5,7 @@ import {
   TextInput,
   ScrollView,
   TouchableOpacity,
+  Platform
 } from "react-native";
 import { STYLE, COLORS } from "../constants/theme";
 import DateTimePicker from "@react-native-community/datetimepicker";
@@ -32,18 +33,24 @@ const SleepLogger = () => {
   const [energyLevel, setEnergyLevel] = useState(1);
   const [moodToday, setMoodToday] = useState(1);
   const [showPickerId, setShowPickerId] = useState(null);
+  const [showDatePicker, setShowDatePicker] = useState(false);
+  const [date, setDate] = useState(new Date());
 
   useEmmersiveLayout();
 
-  const getEnergyLevelDescription = (value) => {
-    const descriptions = {
-      1: "1 - Very Poor",
-      2: "2 - Poor",
-      3: "3 - Average",
-      4: "4 - Good",
-      5: "5 - Very Good",
-    };
-    return descriptions[value] || "Unknown";
+  const onAndroidChange = (event, selectedDate) => {
+    if (selectedDate) {
+      setDate(selectedDate);
+    }
+    if (event.type === 'set' || event.type === 'dismissed') {
+      setShowDatePicker(null);
+    }
+  };
+
+  const onIOSChange = (event, selectedDate) => {
+    if (selectedDate) {
+      setDate(selectedDate);
+    }
   };
 
   return (
@@ -52,6 +59,23 @@ const SleepLogger = () => {
         <Text style={[STYLE.largeheader, { alignSelf: "center" }]}>
           Sleep Log
         </Text>
+        <Card style={STYLE.datecard}>
+        <Text style={STYLE.dateinput} onPress={() => setShowDatePicker(true)}>
+          {date.toDateString()}
+        </Text>
+        {showDatePicker && (
+          <DateTimePicker
+            testID="dateTimePicker"
+            minimumDate={new Date(2024, 0, 1)}
+            maximumDate={new Date()}
+            value={date}
+            mode="date"
+            display={Platform.OS === "ios" ? "inline" : "default"}
+            accentColor={COLORS.primary}
+            onChange={Platform.OS === "android" ? onAndroidChange : onIOSChange}
+          />
+        )}
+        </Card>
         <Card>
           <Text style={STYLE.question}>
             Did you use any sleep aids last night?

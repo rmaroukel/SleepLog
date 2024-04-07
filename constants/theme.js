@@ -87,6 +87,17 @@ const STYLE = StyleSheet.create({
     fontSize: SIZES.medium,
     fontFamily: FONT.regular,
   },
+  dateinput: {
+    width: "100%",
+    paddingHorizontal: SIZES.small,
+    paddingVertical: 12,
+    borderRadius: SIZES.xSmall,
+    backgroundColor: COLORS.secondary,
+    color: COLORS.primary,
+    fontSize: SIZES.xLarge,
+    fontFamily: FONT.bold,
+    textAlign: "center",
+  },
   card: {
     backgroundColor: '#fff',
     borderRadius: 8,
@@ -100,6 +111,13 @@ const STYLE = StyleSheet.create({
     shadowOpacity: 0.23,
     shadowRadius: 2.62,
     elevation: 4,
+  },
+  datecard: {
+    backgroundColor: COLORS.secondary,
+    borderRadius: 8,
+    padding: 16,
+    marginBottom: 20,
+    elevation: 0,
   },
   button: {
     fontFamily: FONT.bold,

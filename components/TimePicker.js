@@ -10,13 +10,11 @@ const TimePicker = ({ id, label, time, onTimeChange, showPickerId, setShowPicker
       if (selectedTime) {
         onTimeChange(selectedTime);
       }
-      // For Android, always hide the picker after selection
       if (event.type === 'set' || event.type === 'dismissed') {
         setShowPickerId(null);
       }
     };
   
-    // Separate onChange for iOS to allow for manual closing
     const onIOSChange = (event, selectedTime) => {
       if (selectedTime) {
         onTimeChange(selectedTime);
