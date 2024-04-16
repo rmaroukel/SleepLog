@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, Text, View } from "react-native";
+import {
+  FlatList,
+  Text,
+  View,
+  Modal,
+  Pressable,
+  TouchableOpacity,
+} from "react-native";
 import { useEmmersiveLayout } from "../hooks/useEmmersiveLayout";
 import { COLORS, STYLE } from "../constants/theme";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -10,6 +17,9 @@ import axios from "axios";
 
 const SleepLogs = () => {
   const [sleepLogs, setSleepLogs] = useState([]);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedLog, setSelectedLog] = useState(null);
+
   useEmmersiveLayout();
 
   useEffect(() => {
@@ -66,6 +76,11 @@ const SleepLogs = () => {
     );
   };
 
+  const handlePressCard = (log) => {
+    setSelectedLog(log);
+    setModalVisible(true);
+  };
+
   return (
     <View style={{ flex: 1, backgroundColor: COLORS.primary, paddingTop: 120 }}>
       <Text style={[STYLE.largeheader, { alignSelf: "center" }]}>
@@ -76,34 +91,93 @@ const SleepLogs = () => {
         data={sleepLogs}
         keyExtractor={(item) => item.log_id.toString()}
         renderItem={({ item }) => (
-          <Card style={STYLE.card}>
-            <Text style={[STYLE.dateinput, { marginBottom: 20 }]}>
-              {formatDate(item.log_date)}
-            </Text>
-            <View style={STYLE.flexRow}>
-              <View style={STYLE.flexColumn}>
-                <MaterialIcons name="nights-stay" size={24} color={COLORS.gray} />
-                <Text style={[STYLE.list, { color: COLORS.gray }]}>{formatTime(item.bed_time)}</Text>
+          <TouchableOpacity onPress={() => handlePressCard(item)}>
+            <Card style={STYLE.card}>
+              <Text style={[STYLE.dateinput, { marginBottom: 20 }]}>
+                {formatDate(item.log_date)}
+              </Text>
+              <View style={STYLE.flexRow}>
+                <View style={STYLE.flexColumn}>
+                  <MaterialIcons
+                    name="nights-stay"
+                    size={24}
+                    color={COLORS.gray}
+                  />
+                  <Text style={[STYLE.list, { color: COLORS.gray }]}>
+                    {formatTime(item.bed_time)}
+                  </Text>
+                </View>
+                <View style={STYLE.flexColumn}>
+                  <MaterialIcons name="sunny" size={24} color={COLORS.gray} />
+                  <Text style={[STYLE.list, { color: COLORS.gray }]}>
+                    {formatTime(item.out_of_bed_time)}
+                  </Text>
+                </View>
               </View>
-              <View style={STYLE.flexColumn}>
-              <MaterialIcons name="sunny" size={24} color={COLORS.gray} />
-              <Text style={[STYLE.list, { color: COLORS.gray }]}>{formatTime(item.out_of_bed_time)}</Text>
+              <View style={STYLE.list}>
+                <ProgressBar
+                  label="Quality"
+                  value={item.sleep_quality}
+                  max={5}
+                />
               </View>
-            </View>
-            <View style={STYLE.list}>
-              <ProgressBar label="Quality" value={item.sleep_quality} max={5} />
-            </View>
-            <View style={STYLE.list}>
-              <ProgressBar label="Energy" value={item.energy_level} max={5} />
-            </View>
-            <View style={STYLE.list}>
-              <ProgressBar label="Mood" value={item.mood_today} max={5} />
-            </View>
-          </Card>
+              <View style={STYLE.list}>
+                <ProgressBar label="Energy" value={item.energy_level} max={5} />
+              </View>
+              <View style={STYLE.list}>
+                <ProgressBar label="Mood" value={item.mood_today} max={5} />
+              </View>
+            </Card>
+          </TouchableOpacity>
         )}
         ListEmptyComponent={<Text style={STYLE.header}>No entries found</Text>}
         style={{ flex: 1 }}
       />
+
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <View style={STYLE.centeredView}>
+          <View style={STYLE.modalView}>
+              <View style={STYLE.flexColumn}>
+                <MaterialIcons
+                  name="nights-stay"
+                  size={24}
+                  color={COLORS.gray}
+                />
+                <Text style={[STYLE.list, { color: COLORS.gray }]}>
+                  {formatTime(selectedLog?.bed_time)}
+                </Text>
+              </View>
+              <View style={STYLE.flexColumn}>
+                <MaterialIcons name="sunny" size={24} color={COLORS.gray} />
+                <Text style={[STYLE.list, { color: COLORS.gray }]}>
+                  {formatTime(selectedLog?.out_of_bed_time)}
+                </Text>
+              </View>
+            <Text style={STYLE.modalText}>
+              Sleep Quality: {selectedLog?.sleep_quality}
+            </Text>
+            <Text style={STYLE.modalText}>
+              Energy Level: {selectedLog?.energy_level}
+            </Text>
+            <Text style={STYLE.modalText}>
+              Mood Today: {selectedLog?.mood_today}
+            </Text>
+            <TouchableOpacity
+              style={[STYLE.button, STYLE.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}
+            >
+              <Text style={STYLE.textStyle}>Hide Details</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
