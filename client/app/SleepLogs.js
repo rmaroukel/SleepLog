@@ -3,9 +3,8 @@ import {
   FlatList,
   Text,
   View,
-  Modal,
-  Pressable,
   TouchableOpacity,
+  Modal,
 } from "react-native";
 import { useEmmersiveLayout } from "../hooks/useEmmersiveLayout";
 import { COLORS, STYLE } from "../constants/theme";
@@ -64,7 +63,7 @@ const SleepLogs = () => {
         <View style={STYLE.progressBar}>
           <View
             style={{
-              height: 20,
+              height: 12,
               width: getWidth(value, max),
               backgroundColor: getColor(value),
               borderRadius: 5,
@@ -93,9 +92,10 @@ const SleepLogs = () => {
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => handlePressCard(item)}>
             <Card style={STYLE.card}>
-              <Text style={[STYLE.dateinput, { marginBottom: 20 }]}>
+              <Text style={[STYLE.mediumheader, { marginBottom: 20 }]}>
                 {formatDate(item.log_date)}
-              </Text>
+              </Text>              
+              <View style={[STYLE.divider, { marginHorizontal: 0, marginBottom: 20 }]} />
               <View style={STYLE.flexRow}>
                 <View style={STYLE.flexColumn}>
                   <MaterialIcons
@@ -135,8 +135,9 @@ const SleepLogs = () => {
       />
 
       <Modal
-        animationType="slide"
+        animationType="fade"
         transparent={true}
+        statusBarTranslucent={true}
         visible={modalVisible}
         onRequestClose={() => {
           setModalVisible(!modalVisible);
@@ -144,36 +145,110 @@ const SleepLogs = () => {
       >
         <View style={STYLE.centeredView}>
           <View style={STYLE.modalView}>
-              <View style={STYLE.flexColumn}>
-                <MaterialIcons
-                  name="nights-stay"
-                  size={24}
-                  color={COLORS.gray}
-                />
+            <Text style={[STYLE.mediumheader, { marginBottom: 20, color: COLORS.lightprimary }]}>
+              {formatDate(selectedLog?.log_date)}
+            </Text>
+            <View style={STYLE.flexRow}>
+              <View style={STYLE.flexRowStart}>
                 <Text style={[STYLE.list, { color: COLORS.gray }]}>
                   {formatTime(selectedLog?.bed_time)}
                 </Text>
               </View>
-              <View style={STYLE.flexColumn}>
-                <MaterialIcons name="sunny" size={24} color={COLORS.gray} />
+              <View style={STYLE.divider} />
+              <View style={STYLE.flexRowEnd}>
                 <Text style={[STYLE.list, { color: COLORS.gray }]}>
                   {formatTime(selectedLog?.out_of_bed_time)}
                 </Text>
               </View>
-            <Text style={STYLE.modalText}>
-              Sleep Quality: {selectedLog?.sleep_quality}
-            </Text>
-            <Text style={STYLE.modalText}>
-              Energy Level: {selectedLog?.energy_level}
-            </Text>
-            <Text style={STYLE.modalText}>
-              Mood Today: {selectedLog?.mood_today}
-            </Text>
+            </View>
+
+            <View style={[STYLE.flexRow, { marginTop: -20 }]}>
+              <View style={STYLE.flexRowStart}>
+                <Text
+                  style={[STYLE.list, { color: COLORS.gray3, fontSize: 12 }]}
+                >
+                  {formatTime(selectedLog?.sleep_attempt_time)}
+                </Text>
+                <MaterialIcons
+                  name="circle-notifications"
+                  size={18}
+                  color={COLORS.gray3}
+                  style={{ marginLeft: 10}}
+                />
+              </View>
+              <View style={[STYLE.divider, { backgroundColor: COLORS.gray4}]} />
+              <View style={STYLE.flexRowEnd}>
+                <MaterialIcons
+                  name="alarm"
+                  size={18}
+                  color={COLORS.gray3}
+                  style={{ marginRight: 10 }}
+                />
+                <Text
+                  style={[STYLE.list, { color: COLORS.gray3, fontSize: 12 }]}
+                >
+                  {formatTime(selectedLog?.final_awakening)}
+                </Text>
+              </View>
+            </View>
+            <View style={STYLE.tableContainer}>
+              <View style={STYLE.tableRow}>
+                <Text style={STYLE.tableLabel}>Sleep Quality:</Text>
+                <Text style={STYLE.tableValue}>
+                  {selectedLog?.sleep_quality}
+                </Text>
+              </View>
+              <View style={STYLE.tableRow}>
+                <Text style={STYLE.tableLabel}>Energy Level:</Text>
+                <Text style={STYLE.tableValue}>
+                  {selectedLog?.energy_level}
+                </Text>
+              </View>
+              <View style={STYLE.tableRow}>
+                <Text style={STYLE.tableLabel}>Mood Today:</Text>
+                <Text style={STYLE.tableValue}>{selectedLog?.mood_today}</Text>
+              </View>
+              <View style={STYLE.tableRow}>
+                <Text style={STYLE.tableLabel}>Used Sleep Aids:</Text>
+                <Text style={STYLE.tableValue}>{selectedLog?.used_sleep_aids ? 'Yes' : 'No'}</Text>
+              </View>
+              { selectedLog?.fall_asleep_duration && 
+              <View style={STYLE.tableRow}>
+                <Text style={STYLE.tableLabel}>Time to Sleep:</Text>
+                <Text style={STYLE.tableValue}>{selectedLog?.fall_asleep_duration}</Text>
+              </View>
+              }
+              { selectedLog?.awakenings && 
+              <View style={STYLE.tableRow}>
+                <Text style={STYLE.tableLabel}>Awakenings:</Text>
+                <Text style={STYLE.tableValue}>{selectedLog?.awakenings}</Text>
+              </View>
+              }
+              { selectedLog?.awake_duration && 
+              <View style={STYLE.tableRow}>
+                <Text style={STYLE.tableLabel}>Awakenings Duration:</Text>
+                <Text style={STYLE.tableValue}>{selectedLog?.awake_duration}</Text>
+              </View>
+              }
+              { selectedLog?.woke_up_early && 
+              <View style={STYLE.tableRow}>
+                <Text style={STYLE.tableLabel}>Early Awakening:</Text>
+                <Text style={STYLE.tableValue}>{selectedLog?.woke_up_early ? 'Yes' : 'No'}</Text>
+              </View>
+              }
+              { selectedLog?.napped && 
+              <View style={STYLE.tableRow}>
+                <Text style={STYLE.tableLabel}>Napped:</Text>
+                <Text style={STYLE.tableValue}>{selectedLog?.woke_up_early ? 'Yes' : 'No'}</Text>
+              </View>
+              }
+            </View>
+
             <TouchableOpacity
-              style={[STYLE.button, STYLE.buttonClose]}
+              style={[STYLE.buttonClose, STYLE.primary]}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <Text style={STYLE.textStyle}>Hide Details</Text>
+              <Text style={STYLE.buttontext}>Hide Details</Text>
             </TouchableOpacity>
           </View>
         </View>

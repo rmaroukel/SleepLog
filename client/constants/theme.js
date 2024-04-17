@@ -1,11 +1,21 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "react-native/Libraries/NewAppScreen";
 const COLORS = {
+  lightprimary: "#5133a6",
   primary: "#312651",
+  darkprimary: "#1d1126",
+  mutedprimary: "#beb6d4",
   secondary: "#CF9FFF",
-  tertiary: "#F3C778",
+  tertiary: "#c2659e",
 
   gray: "#83829A",
   gray2: "#C1C0C8",
+  gray3: "#c9c9c9",
+  gray4: "#e8e8e8",
+  darkgray: "#4a494a",
+
+  red: "#FF073A",
+  green: "#27AE60",
 
   white: "#F3F4F8",
   lightWhite: "#FAFAFC",
@@ -59,6 +69,14 @@ const STYLE = StyleSheet.create({
     justifyContent: "center",
     alignContent: "center",
   },
+  divider:{
+    flex: 1,
+    height: 1,
+    backgroundColor: '#C0C0C0',
+    width: "100%", 
+    marginBottom: 15,
+    marginHorizontal: 10
+  },
   fullcontainer: {
     paddingTop: 120,
   },
@@ -67,12 +85,21 @@ const STYLE = StyleSheet.create({
     backgroundColor: COLORS.primary,
   },
   flexRow: {
-    flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: 15,
     width: "100%",
+  },
+  flexRowStart: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 15,
+  },
+  flexRowEnd: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 15,
   },
   flexColumn: {
     flexDirection: "column",
@@ -104,7 +131,6 @@ const STYLE = StyleSheet.create({
     paddingHorizontal: SIZES.small,
     paddingVertical: 12,
     borderRadius: SIZES.xSmall,
-    backgroundColor: COLORS.secondary,
     color: COLORS.primary,
     fontSize: SIZES.xLarge,
     fontFamily: FONT.bold,
@@ -125,7 +151,7 @@ const STYLE = StyleSheet.create({
     elevation: 4,
   },
   datecard: {
-    backgroundColor: COLORS.secondary,
+    backgroundColor: COLORS.tertiary,
     borderRadius: 8,
     padding: 16,
     marginBottom: 20,
@@ -191,17 +217,18 @@ const STYLE = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#e0e0e0",
     borderRadius: 5,
-    height: 20,
+    height: 12,
   },
   progressLabel: {
-    minWidth: 110,
-    fontSize: 16,
+    minWidth: 90,
+    fontSize: 12,
     color: "#000",
   },
   valueText: {
     position: "absolute",
     right: 5,
     color: COLORS.primary,
+    fontSize: 9,
   },
   label: {
     fontSize: SIZES.medium,
@@ -213,6 +240,13 @@ const STYLE = StyleSheet.create({
   largeheader: {
     fontSize: SIZES.xxLarge,
     color: COLORS.white,
+    fontFamily: FONT.bold,
+    marginBottom: 40,
+    textAlign: "center",
+  },
+  mediumheader: {
+    fontSize: SIZES.xLarge,
+    color: COLORS.tertiary,
     fontFamily: FONT.bold,
     marginBottom: 40,
     textAlign: "center",
@@ -253,16 +287,14 @@ const STYLE = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(50, 50, 50, 0.9)',
   },
   modalView: {
     margin: 20,
-    backgroundColor: "white",
+    backgroundColor: COLORS.white,
     borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
+    padding: SIZES.medium,
+    shadowColor: "#1f1f1f",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -273,7 +305,15 @@ const STYLE = StyleSheet.create({
     width: "80%",
   },
   buttonClose: {
-    backgroundColor: "#2196F3",
+    fontFamily: FONT.bold,
+    fontSize: SIZES.medium,
+    borderRadius: SIZES.small,
+    padding: SIZES.medium,
+    alignContent: "center",
+    alignItems: "center",
+    width: "100%",
+    marginTop: 20,
+    backgroundColor: COLORS.mutedprimary,
   },
   textStyle: {
     color: "white",
@@ -281,9 +321,30 @@ const STYLE = StyleSheet.create({
     textAlign: "center",
   },
   modalText: {
+    color: COLORS.darkprimary,
     marginBottom: 15,
     textAlign: "center",
   },
+  tableContainer: {
+    borderRadius: 10,
+    width: '100%',
+    backgroundColor: COLORS.gray4,
+    padding: 10,
+  },
+  tableRow: {
+    flexDirection: 'row', // Align items in a row
+    justifyContent: 'space-between', // Space between label and value
+    paddingVertical: 5, // Space above and below each row
+  },
+  tableLabel: {
+    fontSize: 16, // Label font size
+    fontWeight: 'bold', // Make labels bold
+    color: COLORS.darkprimary, // Label text color
+  },
+  tableValue: {
+    fontSize: 16, // Value font size
+    color: COLORS.darkprimary, // Value text color
+  }
 });
 
 export { COLORS, FONT, SIZES, SHADOWS, STYLE };
