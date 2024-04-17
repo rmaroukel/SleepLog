@@ -1,0 +1,13 @@
+{
+    "name": "sleeplog-app",
+    "version": "0.1.0",
+    "description": "Root package to manage client and server installations",
+    "scripts": {
+      "install:client": "cd client && npm install",
+      "install:server": "cd server && npm install",
+      "install": "npm run install:client && npm run install:server"
+    },
+    "author": "Rami Maroukel",
+    "license": "MIT"
+  }
+  

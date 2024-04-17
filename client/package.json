@@ -1,7 +1,9 @@
 {
-  "name": "react-native-jobs",
-  "version": "1.0.0",
+  "name": "sleeplog-client",
+  "version": "0.1.0",
   "main": "expo-router/entry",
+  "author": "Rami Maroukel",
+  "license": "MIT",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
