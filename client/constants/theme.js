@@ -77,6 +77,14 @@ const STYLE = StyleSheet.create({
     marginBottom: 15,
     marginHorizontal: 10
   },
+  verticalDivider: {
+    width: 12,
+    height: 30,
+    backgroundColor: COLORS.tertiary,
+    marginTop: -20,
+    marginBottom: -5,
+    alignSelf: "center",
+  },
   fullcontainer: {
     paddingTop: 120,
   },
@@ -169,6 +177,18 @@ const STYLE = StyleSheet.create({
     marginBottom: 10,
     width: "100%",
   },
+  buttonSecondary: {
+    fontFamily: FONT.bold,
+    fontSize: SIZES.medium,
+    backgroundColor: COLORS.secondary,
+    borderRadius: SIZES.small,
+    padding: SIZES.medium,
+    alignContent: "center",
+    alignItems: "center",
+    marginTop: 10,
+    marginBottom: 10,
+    width: "100%",
+  },
   buttonDisabled: {
     fontFamily: FONT.bold,
     fontSize: SIZES.medium,
@@ -177,6 +197,9 @@ const STYLE = StyleSheet.create({
     padding: SIZES.medium,
     alignContent: "center",
     alignItems: "center",
+    marginTop: 10,
+    marginBottom: 10,
+    width: "100%",
   },
   buttontext: {
     fontFamily: FONT.small,

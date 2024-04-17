@@ -44,18 +44,18 @@ const SecureAccess = () => {
             <Text
               style={!accessCode ? STYLE.buttontextDisabled : STYLE.buttontext}
             >
-              Enter New Sleep Log
+              Add New Log
             </Text>
           </Pressable>
           <Pressable
-            style={!accessCode ? STYLE.buttonDisabled : STYLE.button}
+            style={!accessCode ? STYLE.buttonDisabled : STYLE.buttonSecondary}
             onPress={() => navigation.navigate("SleepLogs")}
             disabled={!accessCode}
           >
             <Text
               style={!accessCode ? STYLE.buttontextDisabled : STYLE.buttontext}
             >
-              View All Sleep Logs
+              View All
             </Text>
           </Pressable>
         </View>
