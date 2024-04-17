@@ -1,15 +1,15 @@
 
-# Sleep Tracker App
+# Sleep Log
 
-Welcome to the repository for my Sleep Tracker App, a mobile application designed to help users monitor and understand their sleep patterns for improved well-being.
+Welcome to the repository for my Sleep Log App, a mobile application designed to help users monitor and understand their sleep patterns for improved well-being.
 
 ## About The Project
 
-This Sleep Tracker App is built using React Native and Expo, which enables a seamless experience across both Android and iOS devices. The app features an intuitive interface with a night-time theme, allowing users to log their sleep, view detailed insights, and gain a better understanding of their sleep habits.
+This Sleep Log App is built using React Native and Expo, which enables a seamless experience across both Android and iOS devices. The app features an intuitive interface with a night-time theme, allowing users to log their sleep, view detailed insights, and gain a better understanding of their sleep habits.
 
 ## Disclaimer
 
-The Sleep Tracker App is currently non-HIPAA compliant and should not be used to store, process, or transmit any patient's identifiable information or health data. Users looking to implement this app within environments requiring HIPAA compliance should conduct thorough research and possibly consult a legal expert to ensure the app adheres to all necessary regulations for the secure and compliant handling of patient information.
+The Sleep Log App is currently non-HIPAA compliant and should not be used to store, process, or transmit any patient's identifiable information or health data. Users looking to implement this app within environments requiring HIPAA compliance should conduct thorough research and possibly consult a legal expert to ensure the app adheres to all necessary regulations for the secure and compliant handling of patient information.
 
 ## Features
 
@@ -35,18 +35,11 @@ The Sleep Tracker App is currently non-HIPAA compliant and should not be used to
 
 To get a local copy up and running follow these simple steps.
 
-### Prerequisites
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/rmaroukel/SleepLog.git
    ```
 2. Install NPM packages
    ```sh
@@ -58,7 +51,7 @@ To get a local copy up and running follow these simple steps.
 To start the application, run:
 
 ```sh
-expo start
+npx expo start
 ```
 
 Follow the instructions to open the app on your device or emulator.
@@ -79,12 +72,11 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_twitter)
+Rami Maroukel - [@rmaroukel](https://www.linkedin.com/in/rmaroukel/)
 
-Project Link: [https://github.com/your_username_/Project-Name](https://github.com/your_username_/Project-Name)
+Project Link: [https://github.com/rmaroukel/SleepLog](https://github.com/rmaroukel/SleepLog)
 
 ## Acknowledgements
 
 - [React Native](https://reactnative.dev/)
 - [Expo](https://expo.io/)
-- [Your additional packages/resources]
