@@ -2,10 +2,9 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Platform } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { STYLE } from "../constants/theme"; // Adjust the path as necessary
+import { STYLE } from "../constants/theme";
 
 const TimePicker = ({ id, label, time, onTimeChange, showPickerId, setShowPickerId }) => {
-    // Directly show the picker without toggling state for Android
     const onAndroidChange = (event, selectedTime) => {
       if (selectedTime) {
         onTimeChange(selectedTime);

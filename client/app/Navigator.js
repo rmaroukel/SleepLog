@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import Home from "./index";
 import LogSleepPage from "./SecureAccess";
 import SleepLogger from "./SleepLogger";
+import SleepLogs from "./SleepLogs";
 
 const Stack = createStackNavigator();
 
@@ -15,6 +16,7 @@ function Navigator() {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="LogSleepPage" component={LogSleepPage} />
         <Stack.Screen name="SleepLogger" component={SleepLogger} />
+        <Stack.Screen name="SleepLogs" component={SleepLogs} />
       </Stack.Navigator>
     </NavigationContainer>
   );
