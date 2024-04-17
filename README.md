@@ -7,7 +7,9 @@ Welcome to the repository for my Sleep Tracker App, a mobile application designe
 
 This Sleep Tracker App is built using React Native and Expo, which enables a seamless experience across both Android and iOS devices. The app features an intuitive interface with a night-time theme, allowing users to log their sleep, view detailed insights, and gain a better understanding of their sleep habits.
 
-![App Screenshot](./path-to-your-screenshot.png)
+## Disclaimer
+
+The Sleep Tracker App is currently non-HIPAA compliant and should not be used to store, process, or transmit any patient's identifiable information or health data. Users looking to implement this app within environments requiring HIPAA compliance should conduct thorough research and possibly consult a legal expert to ensure the app adheres to all necessary regulations for the secure and compliant handling of patient information.
 
 ## Features
 
@@ -15,6 +17,19 @@ This Sleep Tracker App is built using React Native and Expo, which enables a sea
 - **Informative Sleep Insights**: View historical data with visual feedback on sleep trends.
 - **Secure Provider Access**: Safely connect with your health provider for personalized advice.
 - **Starry Night Theme**: A beautiful interface that’s easy on the eyes, especially in low-light conditions.
+
+
+## To-Do List
+
+- ⬜ **User Settings**: Implement the user settings page to allow users to customize their app experience.
+- ⬜ **Placeholder for Logo**: Add a placeholder for the future company logo in the app header.
+- ⬜ **Animations Refinement**: Refine the transition and loading animations to provide a smoother user interface.
+- ⬜ **Database Seed**: Create a seeding script for the database to ease testing and initial setup for new developers.
+- ⬜ **Provider Secure Access Code Generator**: Develop a secure system for generating and validating access codes given to users by their health providers.
+- ⬜ **Dark Theme**: Integrate dark theme toggle
+- ⬜ **User Data Export**: Enable providers to export sleep data
+
+
 
 ## Getting Started
 
