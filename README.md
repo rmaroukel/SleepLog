@@ -45,6 +45,14 @@ To get a local copy up and running follow these simple steps.
    ```sh
    npm install
    ```
+3. Run the server
+   ```sh
+   npm run start:server
+   ```
+4. Run the client
+   ```sh
+   npm run start:client
+   ```
 
 ## Usage
 
