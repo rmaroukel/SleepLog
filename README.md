@@ -7,7 +7,7 @@ Welcome to the repository for my Sleep Log App, a mobile application designed to
 
 This Sleep Log App is built using React Native and Expo, which enables a seamless experience across both Android and iOS devices. The app features an intuitive interface with a night-time theme, allowing users to log their sleep, view detailed insights, and gain a better understanding of their sleep habits.
 
-## Disclaimer
+## Disclaimer: HIPAA Compliance
 
 The Sleep Log App is currently non-HIPAA compliant and should not be used to store, process, or transmit any patient's identifiable information or health data. Users looking to implement this app within environments requiring HIPAA compliance should conduct thorough research and possibly consult a legal expert to ensure the app adheres to all necessary regulations for the secure and compliant handling of patient information.
 
