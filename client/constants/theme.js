@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 const COLORS = {
   lightprimary: "#5133a6",
   primary: "#312651",
