@@ -15,7 +15,6 @@ The Sleep Log App is currently non-HIPAA compliant and should not be used to sto
 
 - **User-friendly Sleep Logging**: Easily enter sleep times, quality, and additional notes.
 - **Informative Sleep Insights**: View historical data with visual feedback on sleep trends.
-- **Secure Provider Access**: Safely connect with your health provider for personalized advice.
 - **Starry Night Theme**: A beautiful interface that’s easy on the eyes, especially in low-light conditions.
 
 
