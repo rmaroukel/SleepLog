@@ -26,7 +26,8 @@ The Sleep Log App is currently non-HIPAA compliant and should not be used to sto
 - ⬜ **Animations Refinement**: Refine the transition and loading animations to provide a smoother user interface.
 - ⬜ **Database Seed**: Create a seeding script for the database to ease testing and initial setup for new developers.
 - ⬜ **Provider Secure Access Code Generator**: Develop a secure system for generating and validating access codes given to users by their health providers.
-- ⬜ **Dark Theme**: Integrate dark theme toggle
+- ⬜ **Theme Improvements**: Some areas of the current theme may be too light and should be re-designed
+- ⬜ **Theme Toggle**: Integrate light/dark theme toggle
 - ⬜ **User Data Export**: Enable providers to export sleep data
 
 
