@@ -54,7 +54,7 @@ const SleepLogger = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://192.168.0.123:3000/fetch-sleep-logs"
+          "http://0.0.0.0:3000/fetch-sleep-logs" // Replace with your actual API endpoint
         );
         setSleepLogs(response.data);
       } catch (error) {
@@ -98,7 +98,7 @@ const SleepLogger = () => {
     console.log("Submitting sleep log...");
     try {
       const response = await axios.post(
-        "http://192.168.0.123:3000/submit-sleep-log",
+        "http://0.0.0.0:3000/submit-sleep-log", // Replace with your actual API endpoint
         {
           logDate: date.toISOString().slice(0, 10),
           usedSleepAids: usedSleepAids === "Y",

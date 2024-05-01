@@ -361,18 +361,18 @@ const STYLE = StyleSheet.create({
     padding: 10,
   },
   tableRow: {
-    flexDirection: 'row', // Align items in a row
-    justifyContent: 'space-between', // Space between label and value
-    paddingVertical: 5, // Space above and below each row
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 5,
   },
   tableLabel: {
-    fontSize: 16, // Label font size
-    fontWeight: 'bold', // Make labels bold
-    color: COLORS.darkprimary, // Label text color
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: COLORS.darkprimary,
   },
   tableValue: {
-    fontSize: 16, // Value font size
-    color: COLORS.darkprimary, // Value text color
+    fontSize: 16,
+    color: COLORS.darkprimary,
   }
 });
 

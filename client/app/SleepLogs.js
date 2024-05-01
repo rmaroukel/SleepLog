@@ -25,7 +25,7 @@ const SleepLogs = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://192.168.0.123:3000/fetch-sleep-logs"
+          "http://0.0.0.0:3000/fetch-sleep-logs" // Replace with your actual API endpoint
         );
         setSleepLogs(response.data);
       } catch (error) {
@@ -37,12 +37,10 @@ const SleepLogs = () => {
   }, []);
 
   const formatDate = (dateString) => {
-    // Parse the date and format it to MM/DD/YYYY
     return moment(dateString).format("MM/DD/YYYY");
   };
 
   const formatTime = (timeString) => {
-    // Parse the time using moment, assuming timeString is something like "23:15:00"
     return moment(timeString, "HH:mm:ss").format("hh:mm A");
   };
 

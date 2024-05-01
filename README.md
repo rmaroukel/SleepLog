@@ -20,6 +20,7 @@ The Sleep Log App is currently non-HIPAA compliant and should not be used to sto
 
 ## To-Do List
 
+- ⬜ **Implement .env variable handling**: Currently the database address is hardcoded, looking to implement .env variables.
 - ⬜ **User Settings**: Implement the user settings page to allow users to customize their app experience.
 - ⬜ **Placeholder for Logo**: Add a placeholder for the future company logo in the app header.
 - ⬜ **Animations Refinement**: Refine the transition and loading animations to provide a smoother user interface.
@@ -53,15 +54,44 @@ To get a local copy up and running follow these simple steps.
    npm run start:client
    ```
 
-## Usage
+## Prepare PostgreSQL
 
-To start the application, run:
+The application requires a database on the local machine (seed file with sample data is on the todo list).
+In the meantime, prepare the database manually:
 
 ```sh
-npx expo start
+createdb sleeplogs
+```
+Run the following queries:
+```sh
+CREATE SEQUENCE sleeplogs_log_id_seq;
 ```
 
-Follow the instructions to open the app on your device or emulator.
+```sh
+CREATE TABLE sleeplogs (
+  log_id INT PRIMARY KEY DEFAULT nextval('sleeplogs_log_id_seq'::regclass),
+  log_date DATE NOT NULL,
+  used_sleep_aids BOOL NOT NULL,
+  sleep_aid_details TEXT,
+  bed_time TIME(6),
+  sleep_attempt_time TIME(6),
+  fall_asleep_duration INT,
+  awakenings INT,
+  awake_duration INT,
+  final_awakening TIME(6),
+  out_of_bed_time TIME(6),
+  woke_up_early BOOL NOT NULL,
+  woke_up_early_duration INT,
+  napped BOOL NOT NULL,
+  naps_count INT,
+  nap_duration INT,
+  sleep_quality INT,
+  energy_level INT,
+  mood_today INT
+);
+```
+
+Be sure to edit the hardcoded ip address to match your local machine (.env variables on the todo list).
 
 ## Contributing
 
