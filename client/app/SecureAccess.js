@@ -15,7 +15,7 @@ import randomAccessCode from "../hooks/useSampleAccessCode";
 
 const SecureAccess = () => {
   const navigation = useNavigation();
-  const [accessCode, setAccessCode] = useState(randomAccessCode().toString());
+  const [accessCode, setAccessCode] = useState(randomAccessCode().toString()); // TODO: replace sample access code with actual access code
 
   useEmmersiveLayout();
   const dismissKeyboard = () => Keyboard.dismiss();
@@ -33,7 +33,7 @@ const SecureAccess = () => {
             style={STYLE.input}
             placeholder="Enter your access code here"
             placeholderTextColor={COLORS.gray}
-            value={accessCode}
+            value={accessCode} // TODO: replace sample access code with actual access code
             onChangeText={setAccessCode}
           />
           <Pressable

@@ -83,7 +83,7 @@ const SleepLogs = () => {
   return (
     <View style={{ flex: 1, backgroundColor: COLORS.primary, paddingTop: 120 }}>
       <Text style={[STYLE.largeheader, { alignSelf: "center" }]}>
-        Log Entries
+        Activity
       </Text>
       <FlatList
         contentContainerStyle={STYLE.contentContainer}

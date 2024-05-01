@@ -29,8 +29,8 @@ const FONT = {
 const SIZES = {
   xxSmall: 8,
   xSmall: 10,
-  small: 12,
-  medium: 16,
+  small: 14,
+  medium: 18,
   large: 20,
   xLarge: 24,
   xxLarge: 52,
@@ -62,7 +62,8 @@ const SHADOWS = {
 const STYLE = StyleSheet.create({
   container: {
     flex: 1,
-    padding: SIZES.xLarge,
+    paddingVertical: SIZES.xLarge,
+    paddingHorizontal: SIZES.xxLarge,
     backgroundColor: COLORS.primary,
     alignItems: "center",
     justifyContent: "center",
@@ -280,7 +281,7 @@ const STYLE = StyleSheet.create({
     marginBottom: SIZES.large,
   },
   infoText: {
-    fontSize: SIZES.large,
+    fontSize: SIZES.medium,
     color: COLORS.secondary,
     fontFamily: FONT.regular,
     marginBottom: 60,
@@ -299,10 +300,10 @@ const STYLE = StyleSheet.create({
     fontFamily: FONT.bold,
   },
   calltoaction: {
-    fontSize: SIZES.large,
+    fontSize: SIZES.small,
     color: COLORS.tertiary,
     fontFamily: FONT.bold,
-    marginBottom: 40,
+    marginBottom: 20,
     textAlign: "center",
   },
   centeredView: {
@@ -336,6 +337,12 @@ const STYLE = StyleSheet.create({
     width: "100%",
     marginTop: 20,
     backgroundColor: COLORS.mutedprimary,
+  },
+  logo: {
+    width: "80%",
+    resizeMode: "contain",
+    height: undefined,
+    aspectRatio: 1,
   },
   textStyle: {
     color: "white",

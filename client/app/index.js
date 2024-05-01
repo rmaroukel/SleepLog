@@ -4,6 +4,7 @@ import {
   Text,
   Pressable,
   StatusBar,
+  Image,
 } from "react-native";
 import { COLORS, STYLE } from "../constants/theme";
 import { useNavigation } from "@react-navigation/native";
@@ -18,10 +19,10 @@ const Home = () => {
     <>
       <StatusBar barStyle="light-content" backgroundColor={COLORS.primary} />
       <View style={STYLE.container}>
-        <Text style={STYLE.largeheader}>Welcome!</Text>
+        {/* <Image source={require("../assets/logo.png")} style={STYLE.logo}></Image> // LOGO PLACEHOLDER */}
+        <Text style={STYLE.largeheader}>SleepLog</Text>
         <Text style={STYLE.infoText}>
-          A good night's sleep is essential for your health and well-being. It
-          helps to improve your brain performance, mood, and overall health.
+          A good night's sleep is essential for your health and well-being.
           Logging your sleep can be a great first step towards understanding
           your sleep patterns and making necessary improvements.
         </Text>

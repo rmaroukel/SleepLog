@@ -19,7 +19,7 @@ import axios from "axios";
 
 const initializeTime = (hours, minutes) => {
   const time = new Date();
-  time.setHours(hours, minutes, 0, 0);  // Sets the time to hours:minutes:00.000
+  time.setHours(hours, minutes, 0, 0);
   return time;
 };
 
